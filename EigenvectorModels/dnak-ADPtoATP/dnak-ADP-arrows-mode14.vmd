@@ -1,0 +1,1888 @@
+#!/usr/local/bin/vmd
+# VMD script written by save_state $Revision: 1.47 $
+# VMD version: 1.9.3
+set viewplist {}
+set fixedlist {}
+proc vmdrestoremymaterials {} {
+  set mlist { Opaque Transparent BrushedMetal Diffuse Ghost Glass1 Glass2 Glass3 Glossy HardPlastic MetallicPastel Steel Translucent Edgy EdgyShiny EdgyGlass Goodsell AOShiny AOChalky AOEdgy BlownGlass GlassBubble RTChrome }
+  set mymlist [material list]
+  foreach mat $mlist {
+    if { [lsearch $mymlist $mat] == -1 } { 
+      material add $mat
+    }
+  }
+  material change ambient Opaque 0.000000
+  material change diffuse Opaque 0.650000
+  material change specular Opaque 0.500000
+  material change shininess Opaque 0.534020
+  material change mirror Opaque 0.000000
+  material change opacity Opaque 1.000000
+  material change outline Opaque 0.000000
+  material change outlinewidth Opaque 0.000000
+  material change transmode Opaque 0.000000
+  material change ambient Transparent 0.000000
+  material change diffuse Transparent 0.650000
+  material change specular Transparent 0.500000
+  material change shininess Transparent 0.534020
+  material change mirror Transparent 0.000000
+  material change opacity Transparent 0.300000
+  material change outline Transparent 0.000000
+  material change outlinewidth Transparent 0.000000
+  material change transmode Transparent 0.000000
+  material change ambient BrushedMetal 0.080000
+  material change diffuse BrushedMetal 0.390000
+  material change specular BrushedMetal 0.340000
+  material change shininess BrushedMetal 0.150000
+  material change mirror BrushedMetal 0.000000
+  material change opacity BrushedMetal 1.000000
+  material change outline BrushedMetal 0.000000
+  material change outlinewidth BrushedMetal 0.000000
+  material change transmode BrushedMetal 0.000000
+  material change ambient Diffuse 0.000000
+  material change diffuse Diffuse 0.620000
+  material change specular Diffuse 0.000000
+  material change shininess Diffuse 0.530000
+  material change mirror Diffuse 0.000000
+  material change opacity Diffuse 1.000000
+  material change outline Diffuse 0.000000
+  material change outlinewidth Diffuse 0.000000
+  material change transmode Diffuse 0.000000
+  material change ambient Ghost 0.000000
+  material change diffuse Ghost 0.000000
+  material change specular Ghost 1.000000
+  material change shininess Ghost 0.230000
+  material change mirror Ghost 0.000000
+  material change opacity Ghost 0.100000
+  material change outline Ghost 0.000000
+  material change outlinewidth Ghost 0.000000
+  material change transmode Ghost 0.000000
+  material change ambient Glass1 0.000000
+  material change diffuse Glass1 0.500000
+  material change specular Glass1 0.650000
+  material change shininess Glass1 0.530000
+  material change mirror Glass1 0.000000
+  material change opacity Glass1 0.150000
+  material change outline Glass1 0.000000
+  material change outlinewidth Glass1 0.000000
+  material change transmode Glass1 0.000000
+  material change ambient Glass2 0.520000
+  material change diffuse Glass2 0.760000
+  material change specular Glass2 0.220000
+  material change shininess Glass2 0.590000
+  material change mirror Glass2 0.000000
+  material change opacity Glass2 0.680000
+  material change outline Glass2 0.000000
+  material change outlinewidth Glass2 0.000000
+  material change transmode Glass2 0.000000
+  material change ambient Glass3 0.150000
+  material change diffuse Glass3 0.250000
+  material change specular Glass3 0.750000
+  material change shininess Glass3 0.800000
+  material change mirror Glass3 0.000000
+  material change opacity Glass3 0.500000
+  material change outline Glass3 0.000000
+  material change outlinewidth Glass3 0.000000
+  material change transmode Glass3 0.000000
+  material change ambient Glossy 0.000000
+  material change diffuse Glossy 0.650000
+  material change specular Glossy 1.000000
+  material change shininess Glossy 0.880000
+  material change mirror Glossy 0.000000
+  material change opacity Glossy 1.000000
+  material change outline Glossy 0.000000
+  material change outlinewidth Glossy 0.000000
+  material change transmode Glossy 0.000000
+  material change ambient HardPlastic 0.000000
+  material change diffuse HardPlastic 0.560000
+  material change specular HardPlastic 0.280000
+  material change shininess HardPlastic 0.690000
+  material change mirror HardPlastic 0.000000
+  material change opacity HardPlastic 1.000000
+  material change outline HardPlastic 0.000000
+  material change outlinewidth HardPlastic 0.000000
+  material change transmode HardPlastic 0.000000
+  material change ambient MetallicPastel 0.000000
+  material change diffuse MetallicPastel 0.260000
+  material change specular MetallicPastel 0.550000
+  material change shininess MetallicPastel 0.190000
+  material change mirror MetallicPastel 0.000000
+  material change opacity MetallicPastel 1.000000
+  material change outline MetallicPastel 0.000000
+  material change outlinewidth MetallicPastel 0.000000
+  material change transmode MetallicPastel 0.000000
+  material change ambient Steel 0.250000
+  material change diffuse Steel 0.000000
+  material change specular Steel 0.380000
+  material change shininess Steel 0.320000
+  material change mirror Steel 0.000000
+  material change opacity Steel 1.000000
+  material change outline Steel 0.000000
+  material change outlinewidth Steel 0.000000
+  material change transmode Steel 0.000000
+  material change ambient Translucent 0.000000
+  material change diffuse Translucent 0.700000
+  material change specular Translucent 0.600000
+  material change shininess Translucent 0.300000
+  material change mirror Translucent 0.000000
+  material change opacity Translucent 0.800000
+  material change outline Translucent 0.000000
+  material change outlinewidth Translucent 0.000000
+  material change transmode Translucent 0.000000
+  material change ambient Edgy 0.000000
+  material change diffuse Edgy 0.660000
+  material change specular Edgy 0.000000
+  material change shininess Edgy 0.750000
+  material change mirror Edgy 0.000000
+  material change opacity Edgy 1.000000
+  material change outline Edgy 0.620000
+  material change outlinewidth Edgy 0.940000
+  material change transmode Edgy 0.000000
+  material change ambient EdgyShiny 0.000000
+  material change diffuse EdgyShiny 0.660000
+  material change specular EdgyShiny 0.960000
+  material change shininess EdgyShiny 0.750000
+  material change mirror EdgyShiny 0.000000
+  material change opacity EdgyShiny 1.000000
+  material change outline EdgyShiny 0.760000
+  material change outlinewidth EdgyShiny 0.940000
+  material change transmode EdgyShiny 0.000000
+  material change ambient EdgyGlass 0.000000
+  material change diffuse EdgyGlass 0.660000
+  material change specular EdgyGlass 0.500000
+  material change shininess EdgyGlass 0.750000
+  material change mirror EdgyGlass 0.000000
+  material change opacity EdgyGlass 0.620000
+  material change outline EdgyGlass 0.620000
+  material change outlinewidth EdgyGlass 0.940000
+  material change transmode EdgyGlass 0.000000
+  material change ambient Goodsell 0.520000
+  material change diffuse Goodsell 1.000000
+  material change specular Goodsell 0.000000
+  material change shininess Goodsell 0.000000
+  material change mirror Goodsell 0.000000
+  material change opacity Goodsell 1.000000
+  material change outline Goodsell 4.000000
+  material change outlinewidth Goodsell 0.900000
+  material change transmode Goodsell 0.000000
+  material change ambient AOShiny 0.000000
+  material change diffuse AOShiny 0.850000
+  material change specular AOShiny 0.200000
+  material change shininess AOShiny 0.530000
+  material change mirror AOShiny 0.000000
+  material change opacity AOShiny 1.000000
+  material change outline AOShiny 0.000000
+  material change outlinewidth AOShiny 0.000000
+  material change transmode AOShiny 0.000000
+  material change ambient AOChalky 0.000000
+  material change diffuse AOChalky 0.850000
+  material change specular AOChalky 0.000000
+  material change shininess AOChalky 0.530000
+  material change mirror AOChalky 0.000000
+  material change opacity AOChalky 1.000000
+  material change outline AOChalky 0.000000
+  material change outlinewidth AOChalky 0.000000
+  material change transmode AOChalky 0.000000
+  material change ambient AOEdgy 0.000000
+  material change diffuse AOEdgy 0.900000
+  material change specular AOEdgy 0.200000
+  material change shininess AOEdgy 0.530000
+  material change mirror AOEdgy 0.000000
+  material change opacity AOEdgy 1.000000
+  material change outline AOEdgy 0.620000
+  material change outlinewidth AOEdgy 0.930000
+  material change transmode AOEdgy 0.000000
+  material change ambient BlownGlass 0.040000
+  material change diffuse BlownGlass 0.340000
+  material change specular BlownGlass 1.000000
+  material change shininess BlownGlass 1.000000
+  material change mirror BlownGlass 0.000000
+  material change opacity BlownGlass 0.100000
+  material change outline BlownGlass 0.000000
+  material change outlinewidth BlownGlass 0.000000
+  material change transmode BlownGlass 1.000000
+  material change ambient GlassBubble 0.250000
+  material change diffuse GlassBubble 0.340000
+  material change specular GlassBubble 1.000000
+  material change shininess GlassBubble 1.000000
+  material change mirror GlassBubble 0.000000
+  material change opacity GlassBubble 0.040000
+  material change outline GlassBubble 0.000000
+  material change outlinewidth GlassBubble 0.000000
+  material change transmode GlassBubble 1.000000
+  material change ambient RTChrome 0.000000
+  material change diffuse RTChrome 0.650000
+  material change specular RTChrome 0.500000
+  material change shininess RTChrome 0.530000
+  material change mirror RTChrome 0.700000
+  material change opacity RTChrome 1.000000
+  material change outline RTChrome 0.000000
+  material change outlinewidth RTChrome 0.000000
+  material change transmode RTChrome 0.000000
+}
+vmdrestoremymaterials
+# Atom selection macros
+atomselect macro at {resname ADE A THY T
+}
+atomselect macro acidic {resname ASP GLU
+}
+atomselect macro cyclic {resname HIS PHE PRO TRP TYR
+}
+atomselect macro acyclic {protein and not cyclic
+}
+atomselect macro aliphatic {resname ALA GLY ILE LEU VAL
+}
+atomselect macro alpha {protein and name CA
+}
+atomselect macro amino {protein
+}
+atomselect macro aromatic {resname HIS PHE TRP TYR
+}
+atomselect macro basic {resname ARG HIS LYS HSP
+}
+atomselect macro bonded {numbonds > 0
+}
+atomselect macro buried {resname ALA LEU VAL ILE PHE CYS MET TRP
+}
+atomselect macro cg {resname CYT C GUA G
+}
+atomselect macro charged {basic or acidic
+}
+atomselect macro hetero {not (protein or nucleic)
+}
+atomselect macro hydrophobic {resname ALA LEU VAL ILE PRO PHE MET TRP
+}
+atomselect macro small {resname ALA GLY SER
+}
+atomselect macro medium {resname VAL THR ASP ASN PRO CYS ASX PCA HYP
+}
+atomselect macro large {protein and not (small or medium)
+}
+atomselect macro neutral {resname VAL PHE GLN TYR HIS CYS MET TRP ASX GLX PCA HYP
+}
+atomselect macro polar {protein and not hydrophobic
+}
+atomselect macro purine {resname ADE A GUA G
+}
+atomselect macro pyrimidine {resname CYT C THY T URA U
+}
+atomselect macro surface {protein and not buried
+}
+atomselect macro lipid {resname DLPE DMPC DPPC GPC LPPC PALM PC PGCL POPC POPE
+}
+atomselect macro lipids {lipid
+}
+atomselect macro ion {resname AL BA CA CAL CD CES CLA CL CO CS CU CU1 CUA HG IN IOD K LIT MG MN3 MO3 MO4 MO5 MO6 NA NAW OC7 PB POT PT RB SOD TB TL WO4 YB ZN ZN1 ZN2
+}
+atomselect macro ions {ion
+}
+atomselect macro sugar {resname AGLC
+}
+atomselect macro solvent {not (protein or sugar or nucleic or lipid)
+}
+atomselect macro glycan {resname NAG BGLN FUC AFUC MAN AMAN BMA BMAN
+}
+atomselect macro carbon {name "C.*" and not ion
+}
+atomselect macro hydrogen {name "[0-9]?H.*"
+}
+atomselect macro nitrogen {name "N.*"
+}
+atomselect macro oxygen {name "O.*"
+}
+atomselect macro sulfur {name "S.*" and not ion
+}
+atomselect macro noh {not hydrogen
+}
+atomselect macro heme {resname HEM HEME
+}
+atomselect macro conformationall {altloc ""
+}
+atomselect macro conformationA {altloc "" or altloc "A"
+}
+atomselect macro conformationB {altloc "" or altloc "B"
+}
+atomselect macro conformationC {altloc "" or altloc "C"
+}
+atomselect macro conformationD {altloc "" or altloc "D"
+}
+atomselect macro conformationE {altloc "" or altloc "E"
+}
+atomselect macro conformationF {altloc "" or altloc "F"
+}
+atomselect macro drude {type DRUD or type LP
+}
+atomselect macro unparametrized beta<1
+atomselect macro addedmolefacture {occupancy 0.8}
+atomselect macro qwikmd_protein {(not name QWIKMDDELETE and protein)}
+atomselect macro qwikmd_nucleic {(not name QWIKMDDELETE and nucleic)}
+atomselect macro qwikmd_glycan {(not name QWIKMDDELETE and glycan)}
+atomselect macro qwikmd_lipid {(not name QWIKMDDELETE and lipid)}
+atomselect macro qwikmd_hetero {(not name QWIKMDDELETE and hetero and not qwikmd_protein and not qwikmd_lipid and not qwikmd_nucleic and not qwikmd_glycan and not water)}
+# Display settings
+display eyesep       0.065000
+display focallength  2.000000
+display height       6.000000
+display distance     -2.000000
+display projection   Perspective
+display nearclip set 0.500000
+display farclip  set 10.000000
+display depthcue   on
+display cuestart   0.500000
+display cueend     10.000000
+display cuestart   0.500000
+display cueend     10.000000
+display cuedensity 0.320000
+display cuemode    Exp2
+display shadows off
+display ambientocclusion off
+display aoambient 0.800000
+display aodirect 0.300000
+display dof off
+display dof_fnumber 64.000000
+display dof_focaldist 0.700000
+mol new dnakADP-2kho-ca-ALIGNEDtoFULL.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation Lines
+mol color Name
+mol selection {all}
+mol material Opaque
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0}
+mol clipplane status 5 0 top {0}
+mol rename top dnakADP-2kho-ca-ALIGNEDtoFULL.pdb
+set viewpoints([molinfo top]) {{{1 0 0 -45.1226} {0 1 0 -33.2292} {0 0 1 23.2171} {0 0 0 1}} {{0.844351 0.0832743 0.529466 0} {0.171919 -0.977805 -0.120407 0} {0.507647 0.192663 -0.839853 0} {0 0 0 1}} {{0.0112538 0 0 0} {0 0.0112538 0 0} {0 0 0.0112538 0} {0 0 0 1}} {{1 0 0 -0.15} {0 1 0 -0.02} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+# done with molecule 0
+mol new dnakADP-2kho-full-ALIGNEDtoCAs.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+graphics top color 16
+graphics top cone {43.308998 33.477001 -34.637001} {41.244598 32.897602 -34.317001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {45.426998 32.736000 -33.088001} {43.375797 32.177002 -32.635601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {43.883999 33.681999 -35.125999} {41.821999 33.098400 -34.809998} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {44.685001 32.591000 -32.729000} {42.648403 32.077801 -32.268200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {40.997002 31.968000 -33.634998} {38.955601 31.512001 -33.326199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.908001 32.646999 -31.469000} {35.854000 32.226200 -31.196800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {35.798000 29.487000 -31.021999} {33.669201 29.035799 -30.982800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {32.497002 29.649000 -29.135000} {30.313602 29.169399 -29.209600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {31.827999 26.128000 -27.816000} {29.523600 25.577801 -28.083200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {28.160999 26.070999 -26.726999} {25.840599 25.442598 -27.129398} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {25.669001 23.573999 -25.285000} {23.293600 22.859800 -25.897600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {23.407000 23.354000 -28.414000} {21.097799 22.848200 -29.102600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {25.138000 25.572001 -31.037001} {22.950001 25.195200 -31.544401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {28.724001 26.480000 -32.139000} {26.588800 26.120399 -32.493000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {30.150999 29.612000 -33.819000} {28.137798 29.302599 -33.991402} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.705002 30.752001 -34.749001} {31.724201 30.479200 -34.733402} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {35.228001 34.230999 -35.362000} {33.285202 33.967800 -35.146999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {38.356998 36.368999 -36.026001} {36.477600 36.069599 -35.638802} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {39.522999 40.015999 -35.900002} {37.693199 39.665600 -35.387600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {39.924000 41.310001 -39.472000} {38.089798 41.120602 -38.903801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {42.584000 43.855000 -38.493999} {40.736599 43.602398 -37.905399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {40.710999 45.641998 -35.699001} {38.911198 45.296200 -34.984200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.262001 44.712002 -37.111000} {35.468800 44.456600 -36.325001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {35.282001 41.627998 -35.868000} {33.469803 41.361397 -35.266602} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {34.541000 39.004002 -38.540001} {32.716599 38.881603 -38.124203} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {32.241001 36.015999 -37.896000} {30.406200 35.889599 -37.698399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {32.872002 33.042000 -40.137001} {31.084602 33.008999 -40.063400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {30.628000 30.604000 -42.041000} {28.860001 30.709600 -42.158001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {30.933001 26.813999 -42.549999} {29.096800 26.920000 -42.857399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {31.406000 25.033001 -45.904999} {29.649601 25.314402 -46.276600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {27.627001 24.361000 -45.938999} {25.846601 24.764799 -46.518799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {27.013000 28.169001 -45.563999} {25.322601 28.557800 -45.946400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {25.926001 28.080999 -41.867001} {24.096001 28.305399 -42.289799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {27.429001 30.528000 -39.256001} {25.592402 30.521000 -39.485401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {25.995001 29.167999 -35.994999} {24.034601 29.012800 -36.344200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {26.444000 25.377001 -36.521000} {24.393600 25.308601 -37.016800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.649000 22.753000 -34.278000} {22.465799 22.613600 -34.959999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {26.959000 21.223000 -31.611000} {24.676199 20.877399 -32.321400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {25.805000 17.709999 -32.720001} {23.449600 17.451599 -33.677601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {28.118000 14.774000 -33.605999} {25.712400 14.513801 -34.659199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {26.760000 11.506000 -35.068001} {24.229000 11.375999 -36.385799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {28.549999 8.233000 -35.828999} {25.907400 8.090000 -37.318798} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {26.610001 6.823000 -38.838001} {23.998600 6.957200 -40.472401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {25.971001 3.081000 -38.556999} {23.224600 3.206800 -40.423798} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {28.353001 2.177000 -41.448002} {25.596001 2.445400 -43.381401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {31.209999 4.148000 -39.826000} {28.508999 4.176600 -41.544201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {30.924999 7.759000 -41.063999} {28.417599 7.883400 -42.506401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {31.707001 10.443000 -38.418999} {29.273401 10.345400 -39.601799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.379999 13.380000 -39.133999} {27.100399 13.423000 -40.220398} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.188000 16.802000 -37.431999} {26.952799 16.739599 -38.323997} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {26.579000 19.584999 -37.445999} {24.424200 19.593599 -38.271400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {23.530001 19.785999 -39.730999} {21.450800 20.020399 -40.640598} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.337000 16.322001 -41.349998} {22.199200 16.635000 -42.439999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.462999 15.032000 -37.717999} {22.154799 15.141199 -38.889397} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {21.000000 16.573999 -36.924000} {18.723400 16.754000 -38.111401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {19.516001 15.605000 -40.346001} {17.300201 16.060400 -41.641800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {19.872999 11.860000 -39.560001} {17.462399 12.263599 -41.064201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {19.381001 12.153000 -35.749001} {16.876400 12.348000 -37.251202} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {16.087000 10.180000 -35.776001} {13.457400 10.535800 -37.481400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {17.798000 7.298000 -37.668999} {15.143001 7.682000 -39.501598} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {20.636000 6.339000 -35.242001} {17.894400 6.467400 -37.073601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {20.059999 8.130000 -31.871000} {17.299200 8.063200 -33.606201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {22.035999 5.662000 -29.681000} {19.150400 5.371800 -31.521000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {25.188999 6.815000 -31.559000} {22.379599 6.535000 -33.235199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.167000 10.543000 -31.856001} {21.493200 10.317201 -33.323200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {26.076000 12.794000 -29.438000} {23.444601 12.347799 -30.705400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.583000 16.174000 -28.469999} {22.092001 15.693800 -29.535200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.853001 18.584999 -25.513000} {22.370600 17.901600 -26.453001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {28.295000 17.275999 -24.419001} {25.646400 16.469999 -25.270601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.080000 20.577999 -22.493000} {26.449200 19.736599 -23.103399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {26.816999 19.118999 -19.724001} {24.006599 18.075199 -20.522202} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.125999 16.033001 -19.362000} {26.244999 14.951001 -20.261400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {32.507000 17.341999 -20.632999} {29.705200 16.286598 -21.334599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {34.476002 16.962999 -17.365000} {31.557201 15.690999 -18.014799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {31.988001 15.652000 -14.757000} {28.951401 14.196000 -15.597400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {32.162998 12.220000 -12.969000} {28.978397 10.622001 -14.056000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.657000 9.331000 -12.999000} {26.407400 7.789200 -14.365999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {28.212000 10.262000 -9.555000} {24.878799 8.483000 -10.898200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {27.254000 13.969000 -10.042000} {24.005199 12.237600 -11.152400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {23.813000 15.722000 -10.136000} {20.593399 14.054800 -11.232599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.002001 16.518999 -13.920000} {20.976200 15.098399 -14.955400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {25.448999 13.161000 -14.989000} {22.342999 11.819201 -16.227001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {22.843000 11.262000 -12.889000} {19.623800 9.817600 -14.346000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {19.981001 13.232000 -14.557000} {16.860401 11.996800 -15.964200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {21.625999 13.065000 -18.063999} {18.610800 12.041200 -19.432199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {21.816999 9.188000 -17.718000} {18.670599 8.127600 -19.347401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {18.004999 9.361000 -17.096001} {14.845200 8.376400 -18.834400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {17.141001 11.504000 -20.177000} {14.142200 10.754600 -21.797400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {19.945999 11.256000 -22.781000} {17.024399 10.601399 -24.331800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {19.391001 8.641000 -25.579000} {16.481001 8.177000 -27.311001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {23.108999 7.895000 -26.183001} {20.191599 7.346800 -27.850201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.910999 5.299000 -24.037001} {21.889999 4.608800 -25.817200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {26.634001 7.241000 -21.228001} {23.576200 6.339400 -22.843801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.014999 5.185000 -19.023001} {25.837599 4.090800 -20.699600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {31.358000 5.417000 -16.030001} {28.089800 4.053000 -17.626801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {35.007999 5.632000 -17.044001} {31.771599 4.242000 -18.508600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.783001 3.410000 -15.662000} {34.441601 1.848400 -17.213999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {38.797001 6.553000 -13.535000} {35.478802 4.811800 -14.829200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {35.131001 7.324000 -12.461000} {31.807600 5.608000 -13.811001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {34.821999 10.042000 -15.168000} {31.648399 8.539599 -16.329000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {31.542999 10.480000 -17.122000} {28.445599 9.195999 -18.350201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {32.303001 8.932000 -20.546000} {29.261402 7.875000 -21.861200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {30.368000 7.691000 -23.621000} {27.401400 6.872200 -25.082201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.965000 4.249000 -25.254999} {26.961401 3.540400 -26.955000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.459000 4.479000 -29.066000} {26.547800 3.958400 -30.750999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.017000 1.412000 -31.350000} {26.069601 1.025200 -33.212200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {30.608000 -0.606000 -28.433001} {27.589600 -1.169000 -30.375200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.761002 1.578000 -27.976999} {30.769201 0.957000 -29.739799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {34.484001 3.685000 -24.841000} {31.451601 2.862400 -26.458799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {35.424999 7.372000 -25.392000} {32.487801 6.571400 -26.722799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {36.386002 10.423000 -23.294001} {33.499001 9.433801 -24.349401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {34.192001 13.465000 -24.091999} {31.469202 12.611401 -24.962198} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.068001 15.926000 -24.930000} {34.414803 15.111000 -25.521601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.646999 13.463000 -27.843000} {35.061798 12.812201 -28.548601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.959999 13.851000 -28.847000} {31.384998 13.300799 -29.708200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.798000 17.650000 -28.353001} {31.283201 17.054399 -28.995001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {36.948002 17.858000 -30.524000} {34.524403 17.343201 -31.017401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {34.775002 16.941999 -33.605999} {32.441402 16.548800 -34.276199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.019001 20.334999 -33.187000} {30.739401 19.962000 -33.740200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {36.449001 21.999001 -32.869999} {34.186203 21.571800 -33.196999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.891998 20.032000 -35.853001} {35.733398 19.726200 -36.197601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {34.883999 21.264999 -37.944000} {32.793999 21.084999 -38.363400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {35.251999 24.827999 -36.500000} {33.187199 24.584000 -36.724400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {39.040001 24.673000 -37.179001} {36.984402 24.409000 -37.258801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {38.367001 23.479000 -40.769001} {36.401402 23.360600 -40.955002} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {35.686001 26.253000 -41.112999} {33.780800 26.201200 -41.261398} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {38.235001 28.875999 -39.932999} {36.315399 28.707199 -39.897400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {41.118999 27.395000 -42.015999} {39.276398 27.278200 -41.914600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {38.853001 27.316000 -45.126999} {37.126999 27.379999 -45.117001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {38.348000 31.153999 -44.931000} {36.683601 31.221600 -44.769402} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {41.976002 32.036999 -44.025002} {40.293201 31.994598 -43.659801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {43.548000 29.424999 -46.369999} {41.913200 29.467600 -46.070801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {46.519001 28.947001 -43.980999} {44.777599 28.823400 -43.584999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {46.651001 26.150999 -41.328999} {44.759201 25.901999 -41.058598} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {45.563999 27.358000 -37.868999} {43.569798 26.931200 -37.590000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {47.408001 25.941000 -34.799999} {45.292801 25.393999 -34.485001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {45.866001 28.046000 -31.982000} {43.708401 27.459600 -31.640800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {42.548000 28.815001 -30.201000} {40.351799 28.247601 -29.944799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {40.601002 30.830999 -27.665001} {38.382000 30.269600 -27.396601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.543999 28.937000 -26.334000} {35.252399 28.373400 -26.235399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {34.417000 29.847000 -24.277000} {32.036999 29.203199 -24.284201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.044998 28.326000 -21.000000} {30.476198 27.577600 -21.139999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {30.372000 29.226999 -18.332001} {27.762199 28.480200 -18.522800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {31.452000 31.156000 -15.184000} {28.774599 30.315800 -15.243800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {30.745001 28.302000 -12.684000} {27.907600 27.367001 -12.902000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.096001 25.724001 -14.307000} {30.106401 24.679602 -14.600000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {35.993000 24.351000 -12.209000} {32.800999 23.020000 -12.452200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {39.583000 23.499001 -13.320000} {36.422001 22.130800 -13.428800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {38.665001 19.934999 -14.349000} {35.476601 18.657400 -14.671600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {35.870998 21.280001 -16.562000} {32.792999 20.119001 -16.957001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {38.127998 24.170000 -17.823999} {35.181797 23.051201 -17.972799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {41.048000 21.764000 -18.548000} {38.099201 20.667799 -18.673601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {38.695999 19.209999 -20.211000} {35.817200 18.207199 -20.577801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.832001 21.945000 -22.792000} {35.121201 21.093399 -23.044800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {41.584999 22.746000 -23.240999} {38.891998 21.930000 -23.295000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {42.227001 18.982000 -23.655001} {39.498001 18.144600 -23.864201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {39.419998 19.011000 -26.299000} {36.800198 18.290600 -26.628201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {41.390999 21.849001 -27.945000} {38.889000 21.214001 -28.047199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {44.735001 19.987000 -27.923000} {42.208401 19.300600 -27.947001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {43.110001 16.802999 -29.398001} {40.629200 16.191599 -29.634001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {41.959999 19.062000 -32.321999} {39.626999 18.582600 -32.519798} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {45.539001 20.386000 -32.882999} {43.244801 19.851400 -32.837200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {44.505001 23.802999 -31.474001} {42.197800 23.260000 -31.328800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {46.784000 25.256001 -28.785999} {44.414600 24.554401 -28.489399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {44.487000 26.983000 -26.246000} {42.117001 26.255199 -25.967201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {46.262001 30.330999 -25.757999} {43.985203 29.713600 -25.383400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {43.591999 31.423000 -23.202999} {41.293999 30.793200 -22.942200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {40.240002 29.933001 -22.055000} {37.791801 29.075600 -21.821199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.680000 32.588001 -21.257999} {35.235401 31.868401 -21.066200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {34.271000 32.783001 -19.677000} {31.737999 32.019802 -19.605801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {30.962999 33.233002 -21.554001} {28.525599 32.559803 -21.593801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.973000 36.360001 -19.431000} {27.363600 35.608402 -19.448200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.490002 37.868999 -20.007999} {30.938602 37.168598 -19.795200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.044998 37.015999 -23.695000} {30.808998 36.435600 -23.523800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.566999 38.646000 -23.601999} {27.136200 37.970798 -23.561600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {31.065001 41.786999 -21.912001} {28.469200 41.093197 -21.730400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {34.008999 41.924999 -24.365000} {31.717598 41.335800 -24.059200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {31.660999 41.335999 -27.351999} {29.510199 40.795998 -27.164799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.561001 44.500000 -26.790001} {27.043402 43.822800 -26.558401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {32.868000 46.502998 -26.525000} {30.298201 45.952797 -26.135599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.271000 46.880001 -22.708000} {30.451599 46.285400 -22.293800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.105999 46.573002 -22.872000} {34.293598 46.256603 -22.209999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.634998 50.259998 -21.964001} {34.511799 49.975998 -21.224201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {36.160000 53.799000 -22.000000} {32.777802 53.411598 -21.370199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {34.522999 53.985001 -18.545000} {30.913799 53.490799 -18.030001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {36.174999 53.869999 -15.080000} {32.339798 53.486401 -14.437600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.830002 51.077000 -13.922000} {30.087603 50.544399 -13.449400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {30.840000 49.176998 -15.303000} {27.318800 48.470398 -15.054400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {28.517000 46.792000 -13.471000} {25.023399 45.952801 -13.341400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {27.056000 44.451000 -16.093000} {23.874199 43.580200 -16.121799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.176001 41.969002 -16.108000} {21.139200 40.954601 -16.295599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.618999 39.105000 -18.636999} {21.865999 38.153400 -18.849998} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {21.261000 37.397999 -19.441000} {18.535000 36.359398 -19.773001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {22.052000 34.191002 -21.377001} {19.518801 33.198803 -21.705200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {18.896000 32.358002 -22.579000} {16.380199 31.323801 -23.015001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {20.431000 29.916000 -25.010000} {18.018999 28.996401 -25.406000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {19.521999 26.813000 -27.002001} {17.094200 25.847799 -27.468801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {18.971001 24.475000 -24.030001} {16.500601 23.509800 -24.582001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {20.160999 26.367001 -20.924999} {17.708399 25.353401 -21.409399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {19.792000 29.622000 -18.958000} {17.228199 28.581400 -19.394800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {22.458000 31.587999 -17.091999} {19.790600 30.583000 -17.417999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {22.403999 34.904999 -15.263000} {19.626200 33.870598 -15.565800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {25.865999 36.270000 -14.508000} {23.027399 35.314201 -14.685000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {26.327000 39.630001 -12.780000} {23.272200 38.675400 -12.906400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.885000 40.816002 -13.325000} {26.781601 40.020000 -13.282000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {32.050999 43.848000 -12.455000} {28.697199 43.169800 -12.197800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {34.532001 45.470001 -14.875000} {31.202202 44.992401 -14.412000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {36.817001 47.908001 -12.974000} {33.208603 47.527401 -12.351200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {39.570999 50.083000 -14.433000} {35.924801 49.909801 -13.561600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {40.240002 52.057999 -11.137000} {36.212803 51.853199 -10.174200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {42.866001 49.480999 -9.937000} {38.905399 49.401398 -8.823800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {44.932999 50.610001 -12.973000} {41.140400 50.738602 -11.668400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {43.005001 49.366001 -16.031000} {39.531200 49.452602 -14.912800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {42.624001 45.749001 -14.755000} {39.269402 45.778000 -13.763600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {39.754002 43.855000 -13.383000} {36.429401 43.662998 -12.680800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.245998 41.526001 -15.105000} {34.156197 41.231800 -14.690200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {35.430000 39.814999 -12.148000} {32.314999 39.304600 -11.861400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {32.316002 37.585999 -11.694000} {29.305403 36.852200 -11.612200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {30.247000 38.987000 -8.778000} {27.079599 38.125000 -8.738400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {27.278000 36.556999 -8.791000} {24.201000 35.622601 -8.890800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {26.063000 33.764999 -11.134000} {23.176800 32.788799 -11.322200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {22.908001 31.583000 -11.190000} {20.062000 30.539000 -11.489200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {21.125000 29.598000 -13.911000} {18.448000 28.534599 -14.297600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {18.834999 26.709000 -14.681000} {16.269600 25.594400 -15.146399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {19.080999 23.289000 -16.124001} {16.629000 22.240000 -16.660601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {15.586000 22.885000 -17.715000} {13.237801 21.706200 -18.256800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {14.387000 26.525999 -18.120001} {11.915000 25.348999 -18.638000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {11.997000 28.112000 -20.573999} {9.452400 26.856800 -21.066799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {11.397000 26.087999 -23.660000} {8.824201 24.806200 -24.118999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {10.544000 22.551001 -22.631001} {8.101800 21.223200 -22.994600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {7.669000 23.351999 -20.160999} {5.314400 21.917999 -20.330200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {6.421000 26.374001 -22.302000} {3.843400 24.907200 -22.495600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {6.653000 25.052999 -25.834000} {3.902000 23.350199 -25.905399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {4.897000 21.943001 -24.309000} {2.277400 20.351200 -24.089001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {1.819000 24.167999 -23.556000} {-0.785800 22.580799 -23.277000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {1.800000 25.125000 -27.275999} {-1.003200 23.312201 -27.113998} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {2.747000 21.617001 -28.625999} {-0.193600 19.700401 -28.211399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-0.215000 20.237000 -26.624001} {-3.025000 18.490799 -25.890001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-2.686000 22.948000 -27.833000} {-5.546400 21.111799 -27.173000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-1.586000 22.162001 -31.410999} {-4.678000 20.015800 -30.751799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-2.206000 18.445000 -30.674999} {-5.335800 16.389000 -29.632399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-5.634000 19.063999 -29.080000} {-8.646600 17.230400 -27.814199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-6.666000 21.535999 -31.891001} {-9.830000 19.466599 -30.801201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-5.623000 18.885000 -34.507000} {-9.056200 16.543200 -33.222599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-7.337000 16.079000 -32.444000} {-10.655800 13.962601 -30.728001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-10.474000 18.306000 -32.428001} {-13.757800 16.251600 -30.686001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-10.290000 19.402000 -36.108002} {-13.861200 16.958801 -34.489002} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-8.952000 16.174000 -37.728001} {-12.669000 13.561000 -35.887001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-10.021000 13.368000 -35.374001} {-13.616600 11.001400 -33.161999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-6.527000 11.787000 -35.030998} {-10.123000 9.401999 -32.899998} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-3.786000 11.885000 -32.320000} {-7.163000 9.704400 -30.447199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-0.054000 12.755000 -32.659000} {-3.426800 10.486200 -31.143600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {1.264000 11.887000 -29.096001} {-1.877400 9.903000 -27.606201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {1.548000 8.328000 -30.546000} {-1.741600 6.222200 -28.770000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {3.804000 9.590000 -33.439999} {0.343000 7.213400 -31.915400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {7.520000 10.279000 -32.563999} {4.125200 7.925000 -31.338200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {8.182000 11.991000 -35.945999} {4.641000 9.322001 -34.901600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {5.136000 14.280000 -35.808998} {1.590200 11.669600 -34.782398} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {6.093000 15.155000 -32.195000} {2.796200 12.856199 -31.327600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {9.667000 16.035000 -33.334000} {6.316800 13.579400 -32.770199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {8.396000 18.028000 -36.382999} {4.877200 15.329600 -35.912399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {5.667000 19.683001 -34.252998} {2.371800 17.232401 -33.767597} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {8.410000 20.563000 -31.673000} {5.287600 18.282000 -31.459801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {10.781000 22.191999 -34.258999} {7.529400 19.624599 -34.317398} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {7.857000 23.867001 -36.130001} {4.544800 21.257401 -36.108601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {5.948000 25.166000 -33.068001} {2.891000 22.893200 -33.052402} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {9.196000 26.309999 -31.350000} {6.260400 24.023399 -31.616001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {9.873000 28.459999 -34.473000} {6.885600 25.960400 -34.826599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {6.233000 29.698999 -34.451000} {3.326800 27.310799 -34.721802} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {6.456000 30.688000 -30.724001} {3.783000 28.577999 -31.053001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {9.587000 32.765999 -31.521000} {7.061800 30.577799 -32.009800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {7.644000 34.646999 -34.284000} {4.876200 32.243000 -34.854401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {4.528000 35.362000 -32.169998} {1.828000 33.112000 -32.705799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {6.622000 37.526001 -29.791000} {4.017200 35.438999 -30.570200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {7.270000 39.888000 -32.726002} {4.566800 37.597801 -33.653202} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {3.996000 39.754002 -34.748001} {1.247000 37.297600 -35.623802} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {0.281000 39.115002 -34.058998} {-2.448400 36.774803 -34.750000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {0.041000 35.784000 -35.972000} {-2.810800 33.302601 -36.388199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {1.853000 32.960999 -37.825001} {-1.169800 30.270998 -38.081200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {0.570000 29.724001 -39.405998} {-2.681400 26.913801 -39.368797} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {1.720000 26.278000 -38.152000} {-1.614400 23.564800 -37.960999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {1.745000 24.524000 -41.561001} {-1.936400 21.440201 -41.187599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {2.984000 20.898001 -41.638000} {-0.828800 17.778400 -41.036999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {2.494000 18.896000 -44.900002} {-1.664200 15.487600 -44.086201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {2.245000 15.081000 -44.540001} {-2.003400 11.712800 -43.378403} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {2.131000 15.080000 -40.719002} {-1.760200 12.051200 -39.538002} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {0.231000 11.773000 -40.186001} {-3.716200 8.837999 -38.569202} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-1.832000 9.266000 -42.249001} {-6.011000 6.192400 -40.239002} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-4.828000 7.023000 -41.591000} {-8.947400 4.028800 -39.101799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-7.571000 4.958000 -43.314999} {-12.019600 1.960200 -40.258598} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-8.979000 8.266000 -44.712002} {-13.483600 5.196400 -41.746803} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-5.578000 8.959000 -46.407001} {-10.269400 5.637400 -43.932400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-2.927000 11.520000 -45.303001} {-7.375800 8.209400 -43.353203} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-3.517000 14.423000 -42.917999} {-7.610800 11.338600 -41.204597} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-2.113000 17.875000 -43.771000} {-6.205600 14.694200 -42.451599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-1.784000 20.177999 -40.756001} {-5.553000 17.272800 -39.701801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-2.411000 23.912001 -41.081001} {-6.061000 21.025400 -40.324600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-3.211000 25.566000 -37.723999} {-6.569400 23.032000 -37.104198} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-3.438000 29.368000 -37.257999} {-6.598400 26.908001 -36.992001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-1.817000 30.650000 -34.032001} {-4.694800 28.352200 -33.958603} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-1.811000 34.230999 -32.636002} {-4.577800 32.066601 -32.866802} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {0.081000 36.044998 -29.864000} {-2.543200 34.029400 -30.287201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-3.367000 36.361000 -28.155001} {-5.944000 34.577202 -28.510801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-4.038000 32.573002 -28.105000} {-6.750600 30.816002 -28.200199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-0.341000 32.058998 -27.257000} {-2.981200 30.269197 -27.405399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-0.214000 34.625999 -24.354000} {-2.827200 32.984001 -24.632799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-3.168000 32.708000 -22.823000} {-5.825400 31.199200 -22.994801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {-1.252000 29.330999 -22.969000} {-3.951400 27.769999 -22.976400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {2.157000 30.562000 -21.663000} {-0.561800 28.994400 -21.799200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {1.598000 32.174000 -18.188000} {-1.110600 30.632999 -18.342400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {4.844000 31.000000 -16.386000} {2.217400 29.503799 -16.654400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {8.467000 30.438999 -17.447001} {5.838600 29.044600 -17.843201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {9.792000 33.830002 -18.552000} {7.043400 32.445202 -19.068001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {9.109000 34.765999 -14.892000} {6.371400 33.448799 -15.429400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {11.282000 31.698000 -13.922000} {8.599199 30.381399 -14.424000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {14.030000 33.770000 -15.704000} {11.295199 32.545002 -16.211800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {13.204000 36.873001 -13.513000} {10.362400 35.641003 -14.062400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {13.147000 34.728001 -10.271000} {10.225400 33.461399 -10.772000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {16.910000 33.652000 -10.234000} {14.021800 32.443001 -10.675400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {17.462999 37.238998 -11.516000} {14.525199 36.068199 -11.925400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {16.336000 38.157001 -7.951000} {13.224000 36.909000 -8.369400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {18.820999 35.806999 -6.184000} {15.726799 34.599400 -6.537400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {21.659000 37.019001 -8.461000} {18.595400 35.919003 -8.729000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {20.908001 40.530998 -7.076000} {17.653002 39.401997 -7.355200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {19.945999 39.438999 -3.490000} {16.612200 38.216801 -3.773000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {23.194000 37.412998 -3.062000} {19.959801 36.403198 -3.280800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {25.260000 40.348999 -4.509000} {21.895800 39.472797 -4.693400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {23.430000 43.064999 -2.511000} {19.817600 42.079399 -2.721600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {22.855000 45.375000 -5.518000} {19.070999 44.364201 -5.678000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {19.815001 47.168999 -7.028000} {15.959001 45.904198 -7.381400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {18.518999 47.278000 -10.640000} {14.838599 45.944401 -11.071000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {19.740999 50.910000 -10.884000} {15.893600 49.657799 -11.236000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {23.344999 49.977001 -9.886000} {19.481400 48.914600 -10.060400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {23.705000 47.960999 -13.125000} {20.135000 46.872398 -13.257800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.881001 50.066002 -16.108000} {21.371801 49.085602 -16.160601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.320999 47.448002 -18.811001} {21.058800 46.478001 -18.891001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {21.981001 44.478001 -19.195000} {18.883001 43.399002 -19.428801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {23.426001 42.500999 -22.127001} {20.702200 41.545601 -22.340401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {21.836000 39.623001 -24.054001} {19.229401 38.631001 -24.340401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {23.183001 36.214001 -25.197001} {20.761600 35.298801 -25.433601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {21.362000 33.188999 -26.642000} {19.080999 32.243198 -27.009800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {18.965000 32.662998 -29.552000} {16.856800 31.700598 -30.034201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {15.799000 32.889999 -27.393999} {13.497800 31.682400 -27.984598} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {16.820999 36.611000 -26.808001} {14.368999 35.481602 -27.371601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {15.152000 37.516998 -30.146999} {12.620200 36.086197 -30.807600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {11.699000 36.773998 -28.580999} {9.082001 34.975197 -29.312000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {10.136000 40.226002 -27.580000} {7.353800 38.386803 -28.425200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {8.673000 38.721001 -24.361000} {5.955400 36.996601 -25.184799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {12.129000 38.195999 -22.712000} {9.354400 36.693600 -23.437201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {13.482000 41.497002 -24.105000} {10.652801 40.043003 -24.875000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {10.336000 43.188000 -22.608000} {7.435000 41.602398 -23.537600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {10.387000 41.278999 -19.277000} {7.390800 39.769398 -20.138201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {14.160000 41.938999 -18.749001} {11.111400 40.565201 -19.455601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {13.659000 45.652000 -19.621000} {10.512200 44.239002 -20.364401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {10.643000 45.862999 -17.235001} {7.343800 44.374599 -18.167400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {12.787000 44.433998 -14.392000} {9.343200 43.071400 -15.173600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {16.051001 46.384998 -15.048000} {12.621600 45.069599 -15.633600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {14.326000 49.620998 -16.208000} {10.868200 48.243999 -16.899200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {16.899000 50.236000 -18.992001} {13.554000 48.955799 -19.545200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {16.554001 48.449001 -22.395000} {13.452600 47.123001 -22.971001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {18.976999 45.445999 -22.839001} {16.020199 44.218399 -23.241400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {21.780001 45.707001 -25.396000} {19.029001 44.715801 -25.599600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {21.636000 43.445999 -28.521000} {19.046600 42.489201 -28.785200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {23.813999 45.708000 -30.823999} {21.411400 44.971199 -30.820000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {25.827999 42.556999 -31.787001} {23.633598 41.927998 -31.722401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.065001 39.310001 -32.838001} {21.921801 38.666801 -32.961403} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {23.391001 37.014999 -29.749001} {21.101801 36.263798 -29.937000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {24.247999 33.655998 -31.455999} {22.155199 33.143398 -31.626799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {27.596001 35.272999 -32.563000} {25.579601 34.868000 -32.561001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {28.379999 37.924999 -29.853001} {26.233999 37.373001 -29.775200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {29.799999 35.303001 -27.416000} {27.605400 34.777000 -27.420801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {32.169998 34.179001 -30.298000} {30.113598 33.757801 -30.218601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.082001 37.847000 -31.028000} {31.124601 37.439201 -30.743000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {33.932999 37.785999 -27.298000} {31.866798 37.290199 -27.046400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {36.409000 34.979000 -28.120001} {34.331200 34.492001 -27.849001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {37.643002 36.707001 -31.323999} {35.697201 36.268799 -30.931400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {38.375000 40.098000 -29.642000} {36.671200 39.510799 -29.013401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {40.492001 38.313000 -26.950001} {38.778202 37.782799 -26.531601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {42.162998 35.876999 -29.423000} {40.361797 35.389000 -28.965000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {42.987999 38.436001 -32.171001} {41.099800 37.877602 -31.709002} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {44.661999 41.787998 -31.304001} {42.816597 41.268200 -30.921600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {44.728001 41.245998 -27.492001} {43.857601 40.397999 -27.393400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {46.377998 37.761002 -27.143999} {45.554798 37.729202 -26.453199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {48.132000 39.098999 -30.063000} {46.335800 38.665001 -31.243799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {50.502998 40.164001 -27.230000} {51.455799 38.577000 -31.183599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {49.680000 41.310001 -23.625000} {53.668201 48.379002 -30.710400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {49.959999 40.687000 -20.034000} {54.142399 56.055199 -26.459400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {51.175999 39.183998 -16.780001} {54.461597 57.838398 -21.628801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {52.433998 37.173000 -13.787000} {53.989799 54.272800 -19.089800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {55.292999 36.409000 -11.446000} {56.076199 51.066200 -17.117599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {58.806000 35.277000 -10.440000} {58.576401 47.448399 -15.841800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {61.387001 32.518002 -9.839000} {58.760201 42.610203 -15.038199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {62.770000 29.850000 -12.328000} {58.284000 38.993000 -17.528200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {62.118000 28.216999 -15.780000} {57.681801 38.346600 -21.434200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {63.191002 29.688000 -18.969000} {61.287601 39.477200 -24.051800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {66.365997 29.868000 -21.061001} {65.462997 37.230999 -24.694401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {69.128998 31.909000 -22.122000} {71.024399 36.228401 -24.129799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {71.087997 34.382000 -19.990999} {73.547600 37.499401 -21.112999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {71.251999 38.176998 -20.547001} {76.217400 41.261200 -21.511200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {74.292999 40.337002 -19.768999} {80.357597 41.437603 -19.356998} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {76.930000 42.854000 -20.893999} {85.040001 42.271599 -19.316198} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {80.500000 43.195000 -22.263000} {89.117599 40.185799 -19.455000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {83.113998 44.073002 -19.573000} {91.488197 39.208801 -15.685400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {86.879997 44.938999 -19.658001} {95.473000 38.719398 -16.341801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {88.369003 41.743999 -21.020000} {95.312202 34.493401 -16.377800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {85.776001 41.341999 -23.808001} {93.637199 35.586201 -19.919601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {83.859001 38.919998 -21.559999} {89.759804 34.029598 -18.023399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {80.077003 38.587002 -21.091000} {85.561401 35.972801 -18.724400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {79.213997 39.491001 -17.482000} {83.875595 36.943401 -15.423201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {75.740997 38.081001 -16.650000} {79.052200 38.068802 -15.774199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {72.918999 40.236000 -15.144000} {77.016998 41.992802 -15.381600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {69.914001 37.882000 -15.717000} {72.490601 41.945202 -17.462000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {70.750999 34.159000 -15.348000} {70.689003 37.540401 -16.642200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {69.723000 31.181000 -17.502001} {68.535797 35.288601 -19.425402} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {66.389000 29.598000 -16.612000} {63.390400 36.384598 -20.295399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {64.739998 32.514000 -14.660000} {63.086399 40.533199 -18.964001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {61.075001 33.637001 -15.194000} {60.374802 44.317802 -20.484400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {59.442001 37.039001 -16.013000} {60.980801 48.854401 -21.556400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {58.966000 39.735001 -14.719000} {62.289200 51.801399 -20.284000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {62.389999 40.090000 -13.042000} {65.483803 49.661800 -17.792000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {64.573997 43.056999 -12.059000} {69.307594 50.903801 -15.694400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {68.290001 42.747002 -11.286000} {72.427399 47.720001 -13.569400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {71.273003 45.132999 -11.208000} {77.095200 47.915600 -12.018800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {75.041000 45.484001 -10.800000} {80.917404 45.321201 -9.858601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {77.432999 48.442001 -10.258000} {85.392395 46.304401 -8.135800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {80.236000 49.110001 -12.782000} {89.906601 44.948002 -9.185200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {82.884003 51.801998 -13.411000} {94.991600 45.573399 -8.535601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {85.081001 53.458000 -16.021999} {99.656403 45.713799 -10.036200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {88.232002 51.599998 -17.105000} {101.882202 41.864597 -9.766399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {90.566002 54.602001 -17.818001} {106.951599 42.837200 -9.220401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {91.440002 57.851002 -15.897000} {109.386406 45.291401 -6.695200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {89.681999 61.008999 -17.299999} {110.632797 49.806599 -8.734599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {87.280998 58.576000 -19.045000} {107.097198 49.332802 -11.731600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {84.134003 60.624001 -19.792999} {105.842003 53.737202 -13.718399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {81.911003 57.867001 -21.292000} {102.036804 52.820000 -16.382401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {81.017998 54.157001 -21.396999} {98.174194 49.849201 -17.200199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {79.598999 51.834000 -24.065001} {95.893402 49.210800 -21.244001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {76.796997 49.583000 -22.809000} {90.648994 49.113400 -21.188999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {76.591003 46.488998 -25.082001} {88.845604 46.250198 -23.593000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {73.511002 44.316002 -24.403999} {83.871201 46.315403 -24.012199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {74.285004 40.617001 -24.921000} {82.374802 42.065201 -24.469400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {72.025002 37.577999 -25.191999} {78.466805 40.392601 -25.660398} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {73.985001 34.362999 -24.868000} {78.340004 35.880600 -24.788000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {75.924004 31.851999 -22.778999} {77.999405 32.032398 -22.075600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {79.530998 32.202000 -24.139999} {82.368996 30.297600 -22.191200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {82.282997 33.967999 -22.080999} {85.882195 30.188198 -19.330200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {83.912003 35.883999 -24.969000} {89.053001 31.380798 -21.777599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {81.499001 38.743999 -25.754999} {88.580399 35.616001 -23.055399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {82.185997 38.511002 -29.504000} {90.348000 35.143600 -26.625999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {80.709000 34.942001 -29.391001} {86.697197 32.443600 -27.109600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {77.310997 36.131001 -27.881001} {83.615196 35.802200 -26.574800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {74.280998 37.768002 -29.653999} {82.076599 39.471603 -29.328400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {74.398003 41.605999 -29.750999} {84.622803 43.172398 -29.216000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {70.817001 42.640999 -28.830999} {81.510803 46.674198 -29.297998} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {71.748001 46.314999 -28.763000} {85.186600 49.772800 -28.921400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {74.130997 48.993999 -27.613001} {89.294594 50.688599 -26.860601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {73.842003 52.500999 -26.179001} {91.439201 54.415001 -25.404202} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {76.063004 55.148998 -24.562000} {95.259003 55.261200 -22.613600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {76.276001 56.924000 -21.230000} {95.550400 56.510799 -19.019400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {78.364998 60.098000 -21.716000} {100.459801 57.988400 -18.215200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {79.459000 62.942001 -19.462999} {102.880600 59.780003 -15.320199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {81.309998 61.217999 -16.598000} {102.101601 56.386997 -11.775399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {83.153000 63.849998 -14.498000} {105.067802 57.475998 -8.668000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {87.022003 64.015999 -14.419000} {109.006203 54.657200 -6.853600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {87.316002 61.368999 -11.657000} {106.018799 51.611000 -4.116000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {90.040001 58.633999 -11.330000} {106.486801 46.768600 -2.724000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {89.126999 55.063000 -12.398000} {103.324196 44.000801 -4.420200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {87.489998 52.417000 -10.155000} {98.617401 42.427799 -3.136600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {85.522003 55.247002 -8.541000} {98.078606 46.638401 -2.232000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {82.607002 56.439999 -10.839000} {97.147606 50.245399 -5.766200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {79.568001 54.478001 -9.630000} {92.024597 50.569000 -6.110000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {77.839996 53.445000 -12.855000} {90.938797 51.124401 -10.268200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {74.709000 51.396000 -12.034000} {85.829201 51.450600 -11.014400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {73.536003 49.000000 -14.749000} {83.912201 50.149601 -14.412000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {69.974998 47.702000 -14.269000} {79.106796 51.529800 -15.507000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {68.234001 44.967999 -16.275000} {76.004799 50.199799 -18.483799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {64.419998 44.891998 -16.056000} {71.904999 53.085598 -19.504999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {62.333000 42.293999 -17.929001} {67.811798 52.648197 -22.168001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {58.618999 43.169998 -17.909000} {64.813599 55.884800 -23.120600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {55.665001 40.772999 -18.035999} {60.061001 55.184200 -24.160398} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {55.157001 40.988998 -21.858999} {60.143803 56.058197 -28.296598} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {58.806999 39.763000 -22.070999} {63.450199 53.048199 -27.487799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {60.043999 43.209000 -23.139999} {67.731796 55.655602 -27.980598} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {63.641998 43.841999 -22.039000} {71.346802 53.611000 -25.361000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {64.438004 47.291000 -20.597000} {75.047600 56.108799 -23.567801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {68.111000 48.026001 -19.889000} {79.277397 53.757603 -21.547199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {69.064003 51.165001 -17.986000} {82.256401 55.981800 -19.149401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {72.475998 52.542999 -17.039000} {86.480400 54.642799 -16.795399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {73.014000 55.452999 -14.657000} {88.408600 56.970600 -13.969600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {75.825996 57.480999 -13.085000} {92.144600 56.692398 -11.021200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {75.167999 57.748001 -9.311000} {90.047798 57.180801 -7.496000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {77.474998 60.834999 -8.998000} {94.612198 58.454998 -5.911600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {75.570000 63.186001 -11.403000} {95.619400 62.456001 -8.983600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {72.306000 61.202000 -11.731000} {90.964996 63.060200 -10.898800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {72.568001 61.192001 -15.568000} {92.847198 63.127399 -14.601399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {70.529999 58.188999 -16.905001} {88.998802 61.799198 -17.035400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {70.515999 56.507999 -20.326000} {89.033600 60.325401 -20.557800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {68.306999 53.634998 -21.566999} {85.058601 59.200397 -22.921999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {67.480003 51.042000 -24.181999} {82.868805 57.388599 -25.869598} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {64.238998 49.008999 -24.653000} {78.088402 57.914398 -27.744801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {64.543999 45.695000 -26.563999} {76.453201 54.205601 -29.435200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {61.630001 43.537998 -27.788000} {72.417000 54.245399 -31.927401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {60.601002 40.051998 -26.521999} {67.732399 51.797398 -30.881800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {61.012001 39.062000 -30.212000} {69.844803 49.604401 -34.023602} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {64.581001 40.495998 -30.336000} {74.283798 48.526798 -32.527802} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {67.596001 38.195000 -30.195999} {75.557198 44.291401 -31.321400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {68.082001 34.450001 -30.621000} {74.182800 40.288403 -32.438400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {65.329002 32.098999 -31.966999} {70.482803 39.664200 -34.455200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {64.638000 28.423000 -30.886999} {67.565399 36.132801 -34.370998} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {67.313004 26.858000 -33.201000} {70.090401 33.469200 -36.097801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {69.851997 29.622999 -32.405998} {73.920998 34.660801 -34.019600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {69.000999 28.919001 -28.681000} {71.526398 33.838600 -30.798399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {69.566002 25.146000 -29.246000} {70.151604 29.851999 -31.618401} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {72.901001 25.930000 -31.018999} {74.470802 28.955999 -32.196999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {73.915001 28.230000 -28.125000} {75.807198 30.216600 -28.657000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {73.289001 25.377001 -25.601000} {72.999001 27.493401 -26.705799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {75.352997 22.924999 -27.764000} {74.331993 24.196400 -28.504200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {77.917999 25.731001 -28.403999} {78.584396 25.695601 -28.163198} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {78.306999 26.684000 -24.712999} {78.634003 25.851999 -24.251799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {78.267998 23.059000 -23.427000} {76.553001 22.316799 -23.476801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {80.913002 21.931000 -26.018000} {79.021400 20.004000 -25.692999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {83.223000 25.020000 -25.819000} {82.975403 21.862600 -24.687000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {83.221001 25.062000 -21.969999} {82.660599 21.157400 -20.913799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {86.925003 24.006001 -21.966999} {85.841400 18.335800 -20.828798} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {87.882004 26.635000 -24.591000} {88.252403 21.024000 -22.969799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {85.815002 29.399000 -22.924000} {87.504204 24.292200 -20.412800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {87.257004 28.594999 -19.440001} {88.887207 22.195999 -17.411800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {90.790001 28.777000 -20.997999} {92.402000 21.069401 -19.274599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {89.834999 32.339001 -22.097000} {93.185402 25.312801 -19.058201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {88.037003 33.337002 -18.815001} {91.785202 26.060001 -15.511801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {91.236000 32.279999 -16.952000} {96.165398 22.948198 -14.710199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {93.216003 34.757999 -19.197001} {97.701607 26.017399 -14.653001} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {90.634003 37.611000 -18.811001} {94.961403 29.068800 -13.567000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {91.056999 37.320999 -15.022000} {95.380600 26.850199 -9.734000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {94.888000 37.533001 -15.372000} {99.699402 28.482401 -10.158400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {94.753998 40.405998 -17.938999} {97.205795 32.410999 -10.926399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {92.514000 42.387001 -15.522000} {93.760201 31.594200 -6.621400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {94.806999 41.683998 -12.497000} {98.525597 31.656399 -5.434000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {97.762001 42.825001 -14.643000} {98.583603 37.087200 -8.943200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {95.849998 45.991001 -15.723000} {92.211395 38.340401 -8.008800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {95.126999 46.834000 -12.014000} {93.226196 37.241398 -3.201200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {98.806000 46.229000 -11.121000} {98.294800 41.146400 -5.545600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {100.120003 48.144001 -14.206000} {94.689606 45.257401 -9.534201} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {97.834000 51.157001 -13.438000} {89.056801 45.271801 -6.223000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {98.267998 51.133999 -9.615000} {92.795799 45.058399 -2.720200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {102.059998 50.502998 -9.692000} {97.368599 49.416599 -6.258200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {102.431000 53.466999 -12.151000} {91.680199 53.240997 -8.550400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {100.778999 55.731998 -9.526000} {89.189400 52.928600 -4.108200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {102.538002 54.044998 -6.584000} {95.799599 53.124599 -2.952400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {105.707001 55.326000 -8.393000} {95.640602 58.956001 -7.426199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {104.146004 58.848000 -8.928000} {88.773605 60.484001 -5.988000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {103.038002 58.966999 -5.201000} {90.824600 58.497398 -1.259000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {106.553001 57.818001 -4.085000} {96.911400 61.945801 -3.470800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {108.803001 60.205002 -6.067000} {94.105804 67.737999 -7.101400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {112.202003 61.035000 -4.423000} {97.892807 72.842003 -8.498600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {111.535004 58.379002 -1.702000} {103.296005 68.849403 -5.578400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {112.278999 55.667999 -4.366000} {105.260002 67.527000 -9.323600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {116.009003 55.137001 -5.264000} {108.849205 72.222000 -13.797400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {117.389999 55.395000 -8.806000} {106.544998 74.786804 -18.593800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {118.117996 51.647999 -9.214000} {112.090996 72.065796 -20.034800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {114.593002 50.812000 -7.966000} {110.828804 66.165398 -15.627800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {113.084999 53.490002 -10.262000} {103.614197 67.087601 -16.279800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {115.271004 52.160000 -13.148000} {105.001007 69.007599 -21.278999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {114.464996 48.459000 -12.484000} {109.799393 64.085403 -20.150400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {110.749001 48.932999 -11.631000} {106.201004 59.478199 -16.034199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {110.067001 51.250999 -14.619000} {99.793602 61.167000 -18.148800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {111.829002 48.664001 -16.896000} {103.171005 61.149002 -22.218399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {109.490997 45.889999 -15.644000} {105.584801 55.013000 -19.274601} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {106.459000 48.265999 -15.844000} {99.232399 53.520000 -16.642599} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {107.238998 48.762001 -19.593000} {96.348198 55.454002 -21.040800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {107.599998 44.987999 -20.129000} {101.302200 52.105400 -22.210600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {104.287003 44.249001 -18.312000} {100.335602 46.921600 -17.824400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {102.732002 46.896000 -20.646999} {93.580803 47.920799 -18.635399} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {104.136002 44.805000 -23.608000} {95.518600 47.852001 -22.970800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {103.084000 41.404999 -22.128000} {99.746803 42.885799 -20.854200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {99.575996 42.900002 -21.612000} {94.945396 40.235603 -17.764200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {99.457001 43.395000 -25.440001} {91.314201 40.875599 -21.462801} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {99.871002 39.577000 -25.709000} {96.333603 37.546799 -22.283199} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {97.226997 36.789001 -25.525999} {97.613800 31.611401 -21.114799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {99.892998 34.902000 -23.473000} {103.192596 32.717800 -20.310799} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {98.723999 34.127998 -19.926001} {104.843796 30.281599 -15.992400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {102.061996 32.716999 -18.768000} {110.952995 32.772999 -17.237000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {104.044998 35.762001 -19.912001} {108.759598 38.054401 -19.726400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {101.556999 38.012001 -18.018000} {105.312798 37.261600 -15.894400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {101.709000 35.855999 -14.814000} {110.291397 35.187798 -12.837000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {105.537003 35.791000 -15.230000} {113.883202 39.671200 -16.380999} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {105.847000 39.558998 -15.965000} {109.452797 43.907597 -17.185400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {103.568001 40.314999 -12.955000} {108.845802 41.651600 -12.173400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {106.065002 38.251999 -10.881000} {115.554802 42.561398 -12.423800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {109.063004 39.917000 -12.691000} {114.961205 47.919601 -16.697800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {107.357002 43.236000 -11.720000} {110.222000 49.155602 -13.928000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {106.156998 42.299000 -8.174000} {113.257797 46.431801 -9.396600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {109.598999 40.868999 -7.220000} {119.333397 49.233799 -11.702800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {111.164001 44.345001 -7.718000} {116.084198 54.815800 -13.193000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {108.393997 46.261002 -5.839000} {112.608398 52.953602 -8.573800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {109.366997 45.068001 -2.313000} {118.379196 52.625000 -6.111800} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {110.799004 48.546001 -1.480000} {115.961807 57.918201 -6.133200} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {108.100998 50.311001 -3.558000} {109.035599 56.382000 -5.469600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {105.328003 48.596001 -1.537000} {110.376404 50.686600 -1.201600} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {107.075996 49.675999 1.739000} {113.697800 53.641598 0.653400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {106.742996 53.308998 0.472000} {107.324799 56.998798 0.213400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {103.141998 52.782001 -0.783000} {103.284798 51.820602 2.153000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {102.487000 51.252998 2.699000} {107.876198 48.909199 6.042400} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {103.745003 53.372002 1.491000} {105.161003 52.885403 3.968000} radius 0.500000 radius2 0.000000 resolution 6
+graphics top color 16
+graphics top cone {102.539001 51.764999 3.334000} {107.822800 49.401398 6.702200} radius 0.500000 radius2 0.000000 resolution 6
+mol delrep 0 top
+mol representation NewCartoon 0.300000 10.000000 4.100000 0
+mol color ColorID 10
+mol selection {resid 510 to 605}
+mol material Opaque
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0}
+mol clipplane status 5 0 top {0}
+mol representation NewCartoon 0.300000 10.000000 4.100000 0
+mol color ColorID 11
+mol selection {resid 391 to 509}
+mol material Opaque
+mol addrep top
+mol selupdate 1 top 0
+mol colupdate 1 top 0
+mol scaleminmax top 1 0.000000 0.000000
+mol smoothrep top 1 0
+mol drawframes top 1 {now}
+mol clipplane center 0 1 top {0.0 0.0 0.0}
+mol clipplane color  0 1 top {0.5 0.5 0.5 }
+mol clipplane normal 0 1 top {0.0 0.0 1.0}
+mol clipplane status 0 1 top {0}
+mol clipplane center 1 1 top {0.0 0.0 0.0}
+mol clipplane color  1 1 top {0.5 0.5 0.5 }
+mol clipplane normal 1 1 top {0.0 0.0 1.0}
+mol clipplane status 1 1 top {0}
+mol clipplane center 2 1 top {0.0 0.0 0.0}
+mol clipplane color  2 1 top {0.5 0.5 0.5 }
+mol clipplane normal 2 1 top {0.0 0.0 1.0}
+mol clipplane status 2 1 top {0}
+mol clipplane center 3 1 top {0.0 0.0 0.0}
+mol clipplane color  3 1 top {0.5 0.5 0.5 }
+mol clipplane normal 3 1 top {0.0 0.0 1.0}
+mol clipplane status 3 1 top {0}
+mol clipplane center 4 1 top {0.0 0.0 0.0}
+mol clipplane color  4 1 top {0.5 0.5 0.5 }
+mol clipplane normal 4 1 top {0.0 0.0 1.0}
+mol clipplane status 4 1 top {0}
+mol clipplane center 5 1 top {0.0 0.0 0.0}
+mol clipplane color  5 1 top {0.5 0.5 0.5 }
+mol clipplane normal 5 1 top {0.0 0.0 1.0}
+mol clipplane status 5 1 top {0}
+mol representation NewCartoon 0.300000 10.000000 4.100000 0
+mol color ColorID 6
+mol selection {resid 1 to 390}
+mol material Opaque
+mol addrep top
+mol selupdate 2 top 0
+mol colupdate 2 top 0
+mol scaleminmax top 2 0.000000 0.000000
+mol smoothrep top 2 0
+mol drawframes top 2 {now}
+mol clipplane center 0 2 top {0.0 0.0 0.0}
+mol clipplane color  0 2 top {0.5 0.5 0.5 }
+mol clipplane normal 0 2 top {0.0 0.0 1.0}
+mol clipplane status 0 2 top {0}
+mol clipplane center 1 2 top {0.0 0.0 0.0}
+mol clipplane color  1 2 top {0.5 0.5 0.5 }
+mol clipplane normal 1 2 top {0.0 0.0 1.0}
+mol clipplane status 1 2 top {0}
+mol clipplane center 2 2 top {0.0 0.0 0.0}
+mol clipplane color  2 2 top {0.5 0.5 0.5 }
+mol clipplane normal 2 2 top {0.0 0.0 1.0}
+mol clipplane status 2 2 top {0}
+mol clipplane center 3 2 top {0.0 0.0 0.0}
+mol clipplane color  3 2 top {0.5 0.5 0.5 }
+mol clipplane normal 3 2 top {0.0 0.0 1.0}
+mol clipplane status 3 2 top {0}
+mol clipplane center 4 2 top {0.0 0.0 0.0}
+mol clipplane color  4 2 top {0.5 0.5 0.5 }
+mol clipplane normal 4 2 top {0.0 0.0 1.0}
+mol clipplane status 4 2 top {0}
+mol clipplane center 5 2 top {0.0 0.0 0.0}
+mol clipplane color  5 2 top {0.5 0.5 0.5 }
+mol clipplane normal 5 2 top {0.0 0.0 1.0}
+mol clipplane status 5 2 top {0}
+mol rename top dnakADP-2kho-full-ALIGNEDtoCAs.pdb
+set viewpoints([molinfo top]) {{{1 0 0 -45.1226} {0 1 0 -33.2292} {0 0 1 23.2171} {0 0 0 1}} {{0.844351 0.0832743 0.529466 0} {0.171919 -0.977805 -0.120407 0} {0.507647 0.192663 -0.839853 0} {0 0 0 1}} {{0.0112538 0 0 0} {0 0.0112538 0 0} {0 0 0.0112538 0} {0 0 0 1}} {{1 0 0 -0.15} {0 1 0 -0.02} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+set topmol [molinfo top]
+# done with molecule 1
+foreach v $viewplist {
+  molinfo $v set {center_matrix rotate_matrix scale_matrix global_matrix} $viewpoints($v)
+}
+foreach v $fixedlist {
+  molinfo $v set fixed 1
+}
+unset viewplist
+unset fixedlist
+mol top $topmol
+unset topmol
+proc vmdrestoremycolors {} {
+color scale colors RWB {1.0 0.0 0.0} {1.0 1.0 1.0} {0.0 0.0 1.0}
+color scale colors BWR {0.0 0.0 1.0} {1.0 1.0 1.0} {1.0 0.0 0.0}
+color scale colors RGryB {1.0 0.0 0.0} {0.5 0.5 0.5} {0.0 0.0 1.0}
+color scale colors BGryR {0.0 0.0 1.0} {0.5 0.5 0.5} {1.0 0.0 0.0}
+color scale colors RGB {1.0 0.0 0.0} {0.0 1.0 0.0} {0.0 0.0 1.0}
+color scale colors BGR {0.0 0.0 1.0} {0.0 1.0 0.0} {1.0 0.0 0.0}
+color scale colors RWG {1.0 0.0 0.0} {1.0 1.0 1.0} {0.0 1.0 0.0}
+color scale colors GWR {0.0 1.0 0.0} {1.0 1.0 1.0} {1.0 0.0 0.0}
+color scale colors GWB {0.0 1.0 0.0} {1.0 1.0 1.0} {0.0 0.0 1.0}
+color scale colors BWG {0.0 0.0 1.0} {1.0 1.0 1.0} {0.0 1.0 0.0}
+color scale colors BlkW {0.0 0.0 0.0} {0.5 0.5 0.5} {1.0 1.0 1.0}
+color scale colors WBlk {1.0 1.0 1.0} {0.5 0.5 0.5} {0.0 0.0 0.0}
+  color scale method RWB
+  set colorcmds {
+    {color Display {Background} white}
+    {color Display {BackgroundTop} black}
+    {color Display {BackgroundBot} blue2}
+    {color Display {FPS} white}
+    {color Name {LPA} green}
+    {color Name {LPB} green}
+    {color Type {LP} green}
+    {color Type {DRUD} pink}
+    {color Element {X} cyan}
+    {color Element {Ac} ochre}
+    {color Element {Ag} ochre}
+    {color Element {Al} ochre}
+    {color Element {Am} ochre}
+    {color Element {Ar} ochre}
+    {color Element {As} ochre}
+    {color Element {At} ochre}
+    {color Element {Au} ochre}
+    {color Element {B} ochre}
+    {color Element {Ba} ochre}
+    {color Element {Be} ochre}
+    {color Element {Bh} ochre}
+    {color Element {Bi} ochre}
+    {color Element {Bk} ochre}
+    {color Element {Br} ochre}
+    {color Element {Ca} ochre}
+    {color Element {Cd} ochre}
+    {color Element {Ce} ochre}
+    {color Element {Cf} ochre}
+    {color Element {Cl} ochre}
+    {color Element {Cm} ochre}
+    {color Element {Co} ochre}
+    {color Element {Cr} ochre}
+    {color Element {Cs} ochre}
+    {color Element {Cu} ochre}
+    {color Element {Db} ochre}
+    {color Element {Ds} ochre}
+    {color Element {Dy} ochre}
+    {color Element {Er} ochre}
+    {color Element {Es} ochre}
+    {color Element {Eu} ochre}
+    {color Element {F} ochre}
+    {color Element {Fe} ochre}
+    {color Element {Fm} ochre}
+    {color Element {Fr} ochre}
+    {color Element {Ga} ochre}
+    {color Element {Gd} ochre}
+    {color Element {Ge} ochre}
+    {color Element {He} ochre}
+    {color Element {Hf} ochre}
+    {color Element {Hg} ochre}
+    {color Element {Ho} ochre}
+    {color Element {Hs} ochre}
+    {color Element {I} ochre}
+    {color Element {In} ochre}
+    {color Element {Ir} ochre}
+    {color Element {K} ochre}
+    {color Element {Kr} ochre}
+    {color Element {La} ochre}
+    {color Element {Li} ochre}
+    {color Element {Lr} ochre}
+    {color Element {Lu} ochre}
+    {color Element {Md} ochre}
+    {color Element {Mg} ochre}
+    {color Element {Mn} ochre}
+    {color Element {Mo} ochre}
+    {color Element {Mt} ochre}
+    {color Element {Na} ochre}
+    {color Element {Nb} ochre}
+    {color Element {Nd} ochre}
+    {color Element {Ne} ochre}
+    {color Element {Ni} ochre}
+    {color Element {No} ochre}
+    {color Element {Np} ochre}
+    {color Element {Os} ochre}
+    {color Element {Pa} ochre}
+    {color Element {Pb} ochre}
+    {color Element {Pd} ochre}
+    {color Element {Pm} ochre}
+    {color Element {Po} ochre}
+    {color Element {Pr} ochre}
+    {color Element {Pt} ochre}
+    {color Element {Pu} ochre}
+    {color Element {Ra} ochre}
+    {color Element {Rb} ochre}
+    {color Element {Re} ochre}
+    {color Element {Rf} ochre}
+    {color Element {Rg} ochre}
+    {color Element {Rh} ochre}
+    {color Element {Rn} ochre}
+    {color Element {Ru} ochre}
+    {color Element {Sb} ochre}
+    {color Element {Sc} ochre}
+    {color Element {Se} ochre}
+    {color Element {Sg} ochre}
+    {color Element {Si} ochre}
+    {color Element {Sm} ochre}
+    {color Element {Sn} ochre}
+    {color Element {Sr} ochre}
+    {color Element {Ta} ochre}
+    {color Element {Tb} ochre}
+    {color Element {Tc} ochre}
+    {color Element {Te} ochre}
+    {color Element {Th} ochre}
+    {color Element {Ti} ochre}
+    {color Element {Tl} ochre}
+    {color Element {Tm} ochre}
+    {color Element {U} ochre}
+    {color Element {V} ochre}
+    {color Element {W} ochre}
+    {color Element {Xe} ochre}
+    {color Element {Y} ochre}
+    {color Element {Yb} ochre}
+    {color Element {Zr} ochre}
+    {color Chain {A} blue}
+    {color Segname {HSP} blue}
+    {color Segname {} red}
+    {color Conformation {all} blue}
+    {color Molecule {0} blue}
+    {color Molecule {dnakADP-2kho-ca-ALIGNEDtoFULL.pdb} blue}
+    {color Molecule {1} red}
+    {color Molecule {dnakADP-2kho-full-ALIGNEDtoCAs.pdb} red}
+    {color Structure {3_10_Helix} blue}
+    {color Surface {Grasp} gray}
+    {color Labels {Springs} orange}
+    {color Stage {Even} gray}
+    {color Stage {Odd} silver}
+  }
+  foreach colcmd $colorcmds {
+    set val [catch {eval $colcmd}]
+  }
+  color change rgb 0 0.0 0.0 1.0
+  color change rgb 2 0.3499999940395355 0.3499999940395355 0.3499999940395355
+  color change rgb 3 1.0 0.5 0.0
+  color change rgb 4 1.0 1.0 0.0
+  color change rgb 5 0.5 0.5 0.20000000298023224
+  color change rgb 6 0.6000000238418579 0.6000000238418579 0.6000000238418579
+  color change rgb 7 0.0 1.0 0.0
+  color change rgb 9 1.0 0.6000000238418579 0.6000000238418579
+  color change rgb 11 0.6499999761581421 0.0 0.6499999761581421
+  color change rgb 12 0.5 0.8999999761581421 0.4000000059604645
+  color change rgb 13 0.8999999761581421 0.4000000059604645 0.699999988079071
+  color change rgb 14 0.5 0.30000001192092896 0.0
+  color change rgb 15 0.5 0.5 0.75
+  color change rgb 17 0.8799999952316284 0.9700000286102295 0.019999999552965164
+  color change rgb 18 0.550000011920929 0.8999999761581421 0.019999999552965164
+  color change rgb 19 0.0 0.8999999761581421 0.03999999910593033
+  color change rgb 20 0.0 0.8999999761581421 0.5
+  color change rgb 21 0.0 0.8799999952316284 1.0
+  color change rgb 22 0.0 0.7599999904632568 1.0
+  color change rgb 23 0.019999999552965164 0.3799999952316284 0.6700000166893005
+  color change rgb 24 0.009999999776482582 0.03999999910593033 0.9300000071525574
+  color change rgb 25 0.27000001072883606 0.0 0.9800000190734863
+  color change rgb 26 0.44999998807907104 0.0 0.8999999761581421
+  color change rgb 27 0.8999999761581421 0.0 0.8999999761581421
+  color change rgb 28 1.0 0.0 0.6600000262260437
+  color change rgb 29 0.9800000190734863 0.0 0.23000000417232513
+  color change rgb 30 0.8100000023841858 0.0 0.0
+  color change rgb 31 0.8899999856948853 0.3499999940395355 0.0
+  color change rgb 32 0.9599999785423279 0.7200000286102295 0.0
+}
+vmdrestoremycolors
+label textsize 1.0
