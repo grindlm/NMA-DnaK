@@ -1,2 +1,22 @@
 references from rosensweig2019
+152 - harrison1997 crystal structure of nucleotide exchange factor grpe bound to the atpase domain fo the molecular chaperone dnak
+  """
+  
+160 - wu2012 crystal structure of dnak protein complexed with nucleotide exchange factor grpe in dnak chaperone system
+154 - sondermann2001 structure of a bag/hsc70 complex: convergent functional evolution of hsp90 nucleotide exchange factors
+
+references moro2007 - Contribution of GrpE N-terminal domain to the interaction with ATPase domain of Hsp70 --- ITC experiments testing the interaction between Nterminal domain of GrpE and SBD of Hsp70.
+11 - 
+  """
+  14 deg outward rotation of subdomain IIB
+  """
+16-18 -
+  """
+  N-terminal residues have been proposed ot interact with dnak stimulating dissociation of bound substrates in a nucleotide dependent manner
+  """
+19 - 
+  """
+  grpe stabilizes preformed DnaK-substrate complexes
+  """
+
 
